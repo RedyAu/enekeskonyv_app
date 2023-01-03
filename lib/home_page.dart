@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:routemaster/routemaster.dart';
 
 import 'book_provider.dart';
 import 'goto_song_form.dart';
@@ -126,7 +127,27 @@ class _MyHomePageState extends State<MyHomePage> {
             // useful for a finger (to be able to scroll through the whole list
             // which is quite long).
             thickness: 10.0,
-            child: ListView.builder(
+            child: ListView(
+              children: [
+                ListTile(
+                  title: Text('kék 1 1'),
+                  onTap: () => Routemaster.of(context).push('/song/bluee/1/1'),
+                ),
+                ListTile(
+                  title: Text('kék 5 1'),
+                  onTap: () => Routemaster.of(context).push('/song/blue/5/1'),
+                ),
+                ListTile(
+                  title: Text('fekete 5 1'),
+                  onTap: () => Routemaster.of(context).push('/song/black/5/1'),
+                ),
+                ListTile(
+                  title: Text('kék 5 5'),
+                  onTap: () => Routemaster.of(context).push('/song/blue/5/5'),
+                ),
+              ],
+            ),
+            /*ListView.builder(
               physics: Platform.isIOS ? const BouncingScrollPhysics() : null,
               itemCount: _songs[provider.bookAsString].length,
               itemBuilder: (context, i) {
@@ -149,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   key: const Key('_MyHomePageState.ListTile'),
                 );
               },
-            ),
+            ),*/
           ),
           key: const Key('_MyHomePageState'),
         );
