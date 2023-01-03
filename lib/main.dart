@@ -33,20 +33,25 @@ final routes = RouteMap(routes: {
       child: ChangeNotifierProvider<BookProvider>(
           create: (_) => BookProvider()..initialize(),
           child: const MyHomePage())),
-  '/song/:book/:song/:verse': (route) =>
+  '/song/:book/:song': (route) =>
       (Book.values.asNameMap().keys.contains(route.pathParameters['book']) &&
               isSongAvailable(Book.values.byName(route.pathParameters['book']!),
-                  int.tryParse(route.pathParameters['song'] ?? '0') ?? 0) &&
-              isVerseAvailable(
-                  Book.values.byName(route.pathParameters['book']!),
-                  int.tryParse(route.pathParameters['song'] ?? '0') ?? 0,
-                  int.tryParse(route.pathParameters['verse'] ?? '0') ?? 0))
-          ? MaterialPage(
+                  int.tryParse(route.pathParameters['song'] ?? '0') ?? 0))
+          ? TabPage(
               child: SongPage(
                 book: Book.values.byName(route.pathParameters['book']!),
                 song: int.parse(route.pathParameters['song']!),
-                verse: int.parse(route.pathParameters['verse']!),
               ),
-            )
-          : const NotFound()
+              paths: getAvailableVersesOfSong(Book.blue, 0)
+                  .map((e) => e.toString())
+                  .toList(),
+              pageBuilder: (child) => MaterialPage(child: child))
+          : const NotFound(),
+  '/song/:book/:song/:verse': (route) => MaterialPage(
+        child: VersePage(
+          book: Book.values.byName(route.pathParameters['book']!),
+          song: int.parse(route.pathParameters['song']!),
+          verse: int.parse(route.pathParameters['verse']!),
+        ),
+      )
 });
