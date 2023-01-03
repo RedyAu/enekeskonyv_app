@@ -25,5 +25,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final routes =
-    RouteMap(routes: {'/': (route) => const MaterialPage(child: MyHomePage())});
+final routes = RouteMap(routes: {
+  '/': (route) => MaterialPage(
+      child: ChangeNotifierProvider<BookProvider>(
+          create: (_) => BookProvider()..initialize(), child: const MyHomePage()))
+});
