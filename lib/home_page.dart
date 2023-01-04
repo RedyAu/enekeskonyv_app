@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'book_provider.dart';
@@ -129,12 +130,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ListView(
               children: [
                 ListTile(
-                  title: Text('kék 1 1'),
-                  //onTap: () => Routemaster.of(context).push('/song/bluee/1/1'),
+                  title: Text('Song test page'),
+                  onTap: () => context.go('/song'),
                 ),
-                ListTile(
-                  title: Text('kék 5 1'),
-                  //onTap: () => Routemaster.of(context).push('/song/blue/5/1'),
+                TextFormField(
+                  decoration: InputDecoration(hintText: 'TabBarView test page'),
+                  onFieldSubmitted: (value) => context.go('/tabs/$value'),
                 ),
                 ListTile(
                   title: Text('fekete 5 1'),
