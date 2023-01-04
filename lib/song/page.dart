@@ -1,4 +1,4 @@
-import 'package:enekeskonyv/util.dart';
+/*import 'package:enekeskonyv/util.dart';
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -135,3 +135,4 @@ class VersePage extends StatelessWidget {
     );
   }
 }
+*/

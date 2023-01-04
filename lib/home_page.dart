@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:routemaster/routemaster.dart';
 
 import 'book_provider.dart';
 import 'goto_song_form.dart';
@@ -131,19 +130,19 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ListTile(
                   title: Text('kék 1 1'),
-                  onTap: () => Routemaster.of(context).push('/song/bluee/1/1'),
+                  //onTap: () => Routemaster.of(context).push('/song/bluee/1/1'),
                 ),
                 ListTile(
                   title: Text('kék 5 1'),
-                  onTap: () => Routemaster.of(context).push('/song/blue/5/1'),
+                  //onTap: () => Routemaster.of(context).push('/song/blue/5/1'),
                 ),
                 ListTile(
                   title: Text('fekete 5 1'),
-                  onTap: () => Routemaster.of(context).push('/song/black/5/1'),
+                  //onTap: () => Routemaster.of(context).push('/song/black/5/1'),
                 ),
                 ListTile(
                   title: Text('kék 5 5'),
-                  onTap: () => Routemaster.of(context).push('/song/blue/5/5'),
+                  //onTap: () => Routemaster.of(context).push('/song/blue/5/5'),
                 ),
               ],
             ),
