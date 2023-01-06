@@ -8,6 +8,15 @@ import 'home_page.dart';
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey();
 final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey();
 
+/*
+Final plan (at some point in the future):
+GoRouter /song/:num/:verse
+  -> song_page: legenerálja, kezeli a tabokat
+    Ha tab változás van, frissíti a pathet, egyébként hasonlóan működik mint most
+  Dallista: Tudja használni ezt az útvonalat egy másik navigatoron belül
+*/
+
+
 final router = GoRouter(
   // TODO Disable me.
   debugLogDiagnostics: kDebugMode,
